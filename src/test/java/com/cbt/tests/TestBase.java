@@ -9,6 +9,9 @@ import org.testng.annotations.Parameters;
 import com.cbt.utilities.ConfigurationReader;
 import com.cbt.utilities.Driver;
 
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
+
 public abstract class TestBase {
 
 	protected WebDriver driver;
@@ -23,6 +26,9 @@ public abstract class TestBase {
 	public void setUp(@Optional String browser) {
 		driver = Driver.getDriver(browser);
 		driver.get(ConfigurationReader.getProperty("url"));
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 	}
 
 	@AfterMethod
