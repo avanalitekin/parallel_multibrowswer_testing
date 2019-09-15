@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="parallel-multi-browser-testng-framework" />
+        <module name="parallel_multibrowswer_testing" />
       </profile>
     </annotationProcessing>
   </component>

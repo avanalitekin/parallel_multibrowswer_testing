@@ -21,18 +21,18 @@ public class BrowserUtils {
 	 * switches to new window by the exact title
 	 */
 	public static void switchToWindow(String targetTitle) {
-		String origin = Driver.getDriver().getWindowHandle();
+		String origin =  Driver.getDriver().getWindowHandle();
 		for (String handle : Driver.getDriver().getWindowHandles()) {
 			Driver.getDriver().switchTo().window(handle);
-			if (Driver.getDriver().getTitle().equals(targetTitle)) {
+			if ( Driver.getDriver().getTitle().equals(targetTitle)) {
 				return;
 			}
 		}
-		Driver.getDriver().switchTo().window(origin);
+		 Driver.getDriver().switchTo().window(origin);
 	}
 
 	public static void hover(WebElement element) {
-		Actions actions = new Actions(Driver.getDriver());
+		Actions actions = new Actions( Driver.getDriver());
 		actions.moveToElement(element).perform();
 	}
 
@@ -55,7 +55,7 @@ public class BrowserUtils {
 
 	public static List<String> getElementsText(By locator) {
 
-		List<WebElement> elems = Driver.getDriver().findElements(locator);
+		List<WebElement> elems =  Driver.getDriver().findElements(locator);
 		List<String> elemTexts = new ArrayList<>();
 
 		for (WebElement el : elems) {
@@ -75,22 +75,22 @@ public class BrowserUtils {
 	}
 
 	public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
-		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
+		WebDriverWait wait = new WebDriverWait( Driver.getDriver(), timeToWaitInSec);
 		return wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public static WebElement waitForVisibility(By locator, int timeout) {
-		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+		WebDriverWait wait = new WebDriverWait( Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 	public static WebElement waitForClickablility(WebElement element, int timeout) {
-		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+		WebDriverWait wait = new WebDriverWait( Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	public static WebElement waitForClickablility(By locator, int timeout) {
-		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+		WebDriverWait wait = new WebDriverWait( Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
@@ -102,7 +102,7 @@ public class BrowserUtils {
 		};
 		try {
 			System.out.println("Waiting for page to load...");
-			WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeOutInSeconds);
+			WebDriverWait wait = new WebDriverWait( Driver.getDriver(), timeOutInSeconds);
 			wait.until(expectation);
 		} catch (Throwable error) {
 			System.out.println(
@@ -111,7 +111,7 @@ public class BrowserUtils {
 	}
 
 	public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
-		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>( Driver.getDriver())
 				.withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 		WebElement element = wait.until(new Function<WebDriver, WebElement>() {

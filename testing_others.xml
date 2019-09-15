@@ -1,10 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="WebOrders Automation Regression Tests" verbose="2">
-
-	<test name="Login tests">
+	<test name="others">
 		<parameter name="browser" value="chrome"></parameter>
 		<packages>
-			<package name="com.cbt.tests.*"></package>
+			<package name="com.cbt.tests.others"></package>
 		</packages>
 	</test>
 

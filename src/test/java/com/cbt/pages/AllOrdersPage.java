@@ -9,7 +9,7 @@ import com.cbt.utilities.Driver;
 
 public class AllOrdersPage {
 	public AllOrdersPage() {
-		PageFactory.initElements(Driver.getDriver(), this);
+		PageFactory.initElements( Driver.getDriver(), this);
 	}
 
 	@FindBy(xpath = "//h1[.='Web Orders']")

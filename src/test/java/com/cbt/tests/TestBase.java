@@ -1,10 +1,7 @@
 package com.cbt.tests;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import com.cbt.utilities.ConfigurationReader;
 import com.cbt.utilities.Driver;
@@ -14,27 +11,37 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class TestBase {
 
-	protected WebDriver driver;
-	// @prameters  --> means that this method will expect an argument
-	// from the xml file
-	// name of the parameter in the xlm file is browser
-	// @optional --> we use this if we dont want to
-	// provide paramters in xml all the time
+//	protected WebDriver driver;
+    // @prameters  --> means that this method will expect an argument
+    // from the xml file
+    // name of the parameter in the xlm file is browser
+    // @optional --> we use this if we dont want to
+    // provide paramters in xml all the time
 
-	@Parameters("browser")
-	@BeforeMethod
-	public void setUp(@Optional String browser) {
-		driver = Driver.getDriver(browser);
-		driver.get(ConfigurationReader.getProperty("url"));
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
-	}
+    @Parameters("xmlbrowser")
+    @BeforeMethod
+    public void setUp(@Optional String xmlbrowser) {
+        String huburl="http://35.182.169.110:4444/wd/hub";
+        String browser="chrome";
+        if(xmlbrowser!=null){
+           browser=xmlbrowser;
+        }
+        Driver.getDriver(browser,huburl);
+        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+    }
 
-	@AfterMethod
-	public void tearDown() {
-		Driver.closeDriver();
-	}
+    @AfterMethod
+    public void tearDown() {
+        Driver.getDriver().quit();
+    }
+
+    @AfterClass
+    void terminate() {
+        //Remove the ThreadLocalMap element
+        Driver.closeDriver();
+    }
 
 }
 

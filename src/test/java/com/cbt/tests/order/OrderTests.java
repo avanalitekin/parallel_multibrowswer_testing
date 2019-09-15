@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.cbt.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -24,10 +25,11 @@ public class OrderTests extends TestBase {
 
 	@Test(description = "Verify labels and tab links are displayed", priority = 1)
 	public void labelsVerication() {
+		Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
 		LoginPage loginPage = new LoginPage();
 
-		assertEquals(driver.getTitle(), "Web Orders Login", "LoginPage is not displayed. Application is down.");
+		assertEquals( Driver.getDriver().getTitle(), "Web Orders Login", "LoginPage is not displayed. Application is down.");
 		loginPage.login(userId, password);
 
 		AllOrdersPage allOrdersPage = new AllOrdersPage();
@@ -40,7 +42,8 @@ public class OrderTests extends TestBase {
 
 	@Test(description = "Verify default Products and prices")
 	public void availableProductsTest() {
-		assertEquals(driver.getTitle(), "Web Orders Login", "LoginPage is not displayed. Application is down.");
+		Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+		assertEquals( Driver.getDriver().getTitle(), "Web Orders Login", "LoginPage is not displayed. Application is down.");
 		LoginPage loginPage = new LoginPage();
 		loginPage.login(userId, password);
 		AllOrdersPage allOrdersPage = new AllOrdersPage();
