@@ -24,13 +24,22 @@ public class Driver {
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--disable-popup-blocking");
+                    options.addArguments("start-maximized");
+                    options.addArguments("test-type");
+                    options.addArguments("allow-running-insecure-content");
+                    options.addArguments("disable-extensions");
+                    options.addArguments("--ignore-certificate-errors");
+                    options.addArguments("test-type=browser");
+                    options.addArguments("disable-infobars");
                     driver.set(new ChromeDriver());
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--headless");
-                    driver.set(new ChromeDriver(options));
+                    ChromeOptions heaadless_options = new ChromeOptions();
+                    heaadless_options.addArguments("--headless");
+                    driver.set(new ChromeDriver(heaadless_options));
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
