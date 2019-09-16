@@ -1,5 +1,6 @@
 package com.cbt.tests;
 
+import com.cbt.utilities.Pages;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -10,6 +11,7 @@ import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public abstract class TestBase {
+    protected Pages pages;
 
 //	protected WebDriver driver;
     // @prameters  --> means that this method will expect an argument
@@ -30,6 +32,7 @@ public abstract class TestBase {
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        pages=new Pages();
     }
 
     @AfterMethod
@@ -44,9 +47,3 @@ public abstract class TestBase {
     }
 
 }
-
-
-
-
-
-

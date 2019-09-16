@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite thread-count="5" name="Suite" parallel="methods" >
+	<test name="classes" parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.login.LoginTests"/>
+			<class name="com.cbt.tests.order.OrderTests"/>
+			<class name="com.cbt.tests.others.FirstTest"/>
+			<class name="com.cbt.tests.others.SecondTest"/>
+			<class name="com.cbt.tests.test_utility.Test_Utility"/>
+
+		</classes>
+	</test> <!-- First Test -->
+</suite> <!-- Suite -->

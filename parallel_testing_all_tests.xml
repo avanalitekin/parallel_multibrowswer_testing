@@ -1,0 +1,104 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite thread-count="5" name="Suite" parallel="tests" >
+	<test name="loginTest" parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.login.LoginTests">
+				<methods>
+					<include name="positiveloginTest" />
+					<include name="positiveLoginUsingPOM" />
+					<include name="invalidUsernameTest" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- First Test -->
+	<test name="orderTest"  parallel="methods" thread-count="5">
+	<parameter name="browser" value="chrome"/>
+	<classes>
+		<class name="com.cbt.tests.order.OrderTests">
+			<methods>
+				<include name="labelsVerication" />
+				<include name="availableProductsTest" />
+			</methods>
+		</class>
+	</classes>
+</test> <!-- Second Test -->
+	<test name="com.FirstTest" parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.others.FirstTest">
+				<methods>
+					<include name="GOOGLE1" />
+					<include name="GOOGLE2" />
+					<include name="GOOGLE3" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- First Test -->
+	<test name="com.SecondTest"  parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.others.SecondTest">
+				<methods>
+					<include name="GOOGLE4" />
+					<include name="YANDEX" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Second Test -->
+	<test name="testUtility1" parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.test_utility.Test_Utility">
+				<methods>
+					<include name="login_test" />
+					<include name="test_navigateTo" />
+					<include name="test_get_text_box_value" />
+					<include name="test_get_selected_dropdown" />
+					<include name="test_select_by_visible_text" />
+					<include name="test_select_by_index" />
+					<include name="test_select_by_index" />
+					<include name="test_get_dropdown_list" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- First Test -->
+	<test name="testUtility2" parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.test_utility.Test_Utility">
+				<methods>
+					<include name="test_select_radio_button_by_value" />
+					<include name="test_select_radio_button_by_index" />
+					<include name="test_select_checkbox_by_value" />
+					<include name="test_select_checkbox_by_index" />
+					<include name="test_select_right_click_double_click" />
+					<include name="test_screenshot" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- First Test -->
+	<test name="testUtility3" parallel="methods" thread-count="5">
+	<parameter name="browser" value="chrome"/>
+	<classes>
+		<class name="com.cbt.tests.test_utility.Test_Utility">
+			<methods>
+				<include name="test_wait_for_visibility" />
+				<include name="test_scroll_methods" />
+				<include name="test_highlight_element" />
+				<include name="test_popup_windows" />
+			</methods>
+		</class>
+	</classes>
+</test> <!-- First Test -->
+	<test name="testUtility4" parallel="methods" thread-count="5">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.cbt.tests.test_utility.Test_Utility">
+				<methods>
+					<include name="test_webtable_methods" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- First Test -->
+</suite> <!-- Suite -->
