@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite thread-count="5" name="Suite" parallel="classes" >
+	<parameter name="xmlbrowser" value="chrome"/>
 	<test name="classes" >
-		<parameter name="xmlbrowser" value="chrome"/>
 		<classes>
 			<class name="com.cbt.tests.login.LoginTests"/>
 			<class name="com.cbt.tests.order.OrderTests"/>

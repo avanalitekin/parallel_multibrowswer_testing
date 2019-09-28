@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite thread-count="5" name="Suite" parallel="tests" >
-	<test name="loginTest" parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<parameter name="xmlbrowser" value="firefox"/>
+	<test name="loginTest" >
 		<classes>
 			<class name="com.cbt.tests.login.LoginTests">
 				<methods>
@@ -12,8 +12,7 @@
 			</class>
 		</classes>
 	</test> <!-- First Test -->
-	<test name="orderTest"  parallel="methods" thread-count="5">
-	<parameter name="browser" value="chrome"/>
+	<test name="orderTest" >
 	<classes>
 		<class name="com.cbt.tests.order.OrderTests">
 			<methods>
@@ -23,8 +22,7 @@
 		</class>
 	</classes>
 </test> <!-- Second Test -->
-	<test name="com.FirstTest" parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<test name="com.FirstTest" >
 		<classes>
 			<class name="com.cbt.tests.others.FirstTest">
 				<methods>
@@ -35,8 +33,7 @@
 			</class>
 		</classes>
 	</test> <!-- First Test -->
-	<test name="com.SecondTest"  parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<test name="com.SecondTest"  >
 		<classes>
 			<class name="com.cbt.tests.others.SecondTest">
 				<methods>
@@ -46,8 +43,7 @@
 			</class>
 		</classes>
 	</test> <!-- Second Test -->
-	<test name="testUtility1" parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<test name="testUtility1" >
 		<classes>
 			<class name="com.cbt.tests.test_utility.Test_Utility">
 				<methods>
@@ -63,8 +59,7 @@
 			</class>
 		</classes>
 	</test> <!-- First Test -->
-	<test name="testUtility2" parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<test name="testUtility2" >
 		<classes>
 			<class name="com.cbt.tests.test_utility.Test_Utility">
 				<methods>
@@ -78,8 +73,7 @@
 			</class>
 		</classes>
 	</test> <!-- First Test -->
-	<test name="testUtility3" parallel="methods" thread-count="5">
-	<parameter name="browser" value="chrome"/>
+	<test name="testUtility3" >
 	<classes>
 		<class name="com.cbt.tests.test_utility.Test_Utility">
 			<methods>
@@ -91,8 +85,7 @@
 		</class>
 	</classes>
 </test> <!-- First Test -->
-	<test name="testUtility4" parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<test name="testUtility4" >
 		<classes>
 			<class name="com.cbt.tests.test_utility.Test_Utility">
 				<methods>

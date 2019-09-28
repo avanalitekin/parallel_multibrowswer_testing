@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite thread-count="2" name="Suite" parallel="tests" >
-	<test name="com.FirstTest" parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+<suite thread-count="5" name="Suite" parallel="methods" >
+	<parameter name="xmlbrowser" value="chrome"/>
+	<test name="com.FirstTest" >
 		<classes>
 			<class name="com.cbt.tests.others.FirstTest">
 				<methods>
@@ -12,8 +12,7 @@
 			</class>
 		</classes>
 	</test> <!-- First Test -->
-	<test name="com.SecondTest"  parallel="methods" thread-count="5">
-		<parameter name="browser" value="chrome"/>
+	<test name="com.SecondTest" >
 		<classes>
 			<class name="com.cbt.tests.others.SecondTest">
 				<methods>
