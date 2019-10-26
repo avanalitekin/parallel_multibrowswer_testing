@@ -1,7 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="WebOrders Automation Regression Tests" verbose="2">
+	<listeners>
+		<listener class-name="com.cbt.reports.TestListener"/>
+	</listeners>
 	<test name="others">
-		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="xmlbrowser" value="chrome"></parameter>
 		<packages>
 			<package name="com.cbt.tests.others"></package>
 		</packages>

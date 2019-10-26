@@ -1,0 +1,3 @@
+mvn clean test -Drunner=parallel_testing_all_tests.xml
+
+mvn clean install -Drunner=parallel_testing_all_tests.xml
