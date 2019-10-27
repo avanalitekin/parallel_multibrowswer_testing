@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite thread-count="5" name="Suite" parallel="classes" >
+<suite  name="Suite" thread-count="5" parallel="classes" >
+	<listeners>
+		<listener class-name="com.cbt.reports.TestListener"/>
+	</listeners>
 	<parameter name="xmlbrowser" value="chrome"/>
 	<test name="classes" >
 		<classes>
