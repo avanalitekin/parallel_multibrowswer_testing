@@ -286,7 +286,6 @@ List<String> row_list=UI_Helper.get_data_on_a_row_webtable(pages.view_all_orders
             System.out.println(methodName);
         extent_test_logger=extent_report.createTest(methodName);
         String log="testing if something goes to extent report";
-        extent_report.setTestRunnerOutput(log);
         extent_test_logger.log(Status.INFO,"looding the page");
         getDriver().get("http://www.naukri.com/");
         extent_test_logger.log(Status.INFO,"getting the title");
