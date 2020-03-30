@@ -17,7 +17,7 @@ public abstract class TestBase {
     private static String browser;
     private String huburl;
 
-    static { Driver.huburl="http://10.156.24.202/wd/hub";
+    static { Driver.huburl="http://35.182.169.110:4444/wd/hub";
         browser= Driver.Browsers.CHROME.getBrowser();}
 
 //	protected WebDriver driver;
@@ -35,7 +35,7 @@ public abstract class TestBase {
            browser=xmlbrowser;
         }
         Driver.getDriver(browser);
-//        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().window().maximize();
         try {
             Driver.getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         } catch (TimeoutException timeoutException){
