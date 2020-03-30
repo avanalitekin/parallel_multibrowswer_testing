@@ -1,9 +1,7 @@
 package com.cbt.tests;
 
 import com.cbt.utilities.Pages;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.testng.annotations.*;
 
 import com.cbt.utilities.ConfigurationReader;
@@ -17,7 +15,7 @@ public abstract class TestBase {
     private static String browser;
     private String huburl;
 
-    static { Driver.huburl="http://35.182.169.110:4444/wd/hub";
+    static { Driver.huburl="http://10.156.24.202:4444/wd/hub";
         browser= Driver.Browsers.CHROME.getBrowser();}
 
 //	protected WebDriver driver;
@@ -36,14 +34,8 @@ public abstract class TestBase {
         }
         Driver.getDriver(browser);
         Driver.getDriver().manage().window().maximize();
-        try {
-            Driver.getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        } catch (TimeoutException timeoutException){
-            Driver.getDriver().navigate().refresh();
-        } catch (WebDriverException webDriverException){
-            Driver.getDriver().navigate().refresh();
-        }
-        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         pages=new Pages();
     }
 
