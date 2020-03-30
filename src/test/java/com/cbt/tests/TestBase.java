@@ -1,7 +1,9 @@
 package com.cbt.tests;
 
 import com.cbt.utilities.Pages;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.testng.annotations.*;
 
 import com.cbt.utilities.ConfigurationReader;
@@ -33,9 +35,15 @@ public abstract class TestBase {
            browser=xmlbrowser;
         }
         Driver.getDriver(browser);
-        Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+//        Driver.getDriver().manage().window().maximize();
+        try {
+            Driver.getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        } catch (TimeoutException timeoutException){
+            Driver.getDriver().navigate().refresh();
+        } catch (WebDriverException webDriverException){
+            Driver.getDriver().navigate().refresh();
+        }
+        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         pages=new Pages();
     }
 
