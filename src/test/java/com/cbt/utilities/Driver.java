@@ -17,9 +17,37 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Driver {
+    public enum Browsers
+    {
+        CHROME("chrome"),
+        CHROME_HEADLESS("chrome-headless"),
+        FIREFOX("firefox"),
+        FIREFOX_HEADLESS("firefox-headless"),
+        IE("ie"),
+        EDGE("edge"),
+        SAFARI("safari"),
+        REMOTE_CHROME ("remotechrome"),
+        REMOTE_FIREFOX ("remotefirefox"),
+        REMOTE_IE ("remoteie");
+        private String browser;
+
+        Browsers(String browser) {
+            this.browser=browser;
+
+        }
+
+        public void setBrowser(String browser){
+            this.browser=browser;
+        }
+        public String getBrowser(){
+            return browser;
+        }
+
+    }
+    public static String huburl;
     private Driver() {}
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
-    public static WebDriver getDriver(String browser ,String huburl) {
+    public static WebDriver getDriver(String browser) {
             browser = browser == null ? "chrome" : browser;
             switch (browser) {
                 case "chrome":

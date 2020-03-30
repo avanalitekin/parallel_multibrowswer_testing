@@ -12,6 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class TestBase {
     protected Pages pages;
+    private static String browser;
+    private String huburl;
+
+    static { Driver.huburl="http://10.156.24.202/wd/hub";
+        browser= Driver.Browsers.CHROME.getBrowser();}
 
 //	protected WebDriver driver;
     // @prameters  --> means that this method will expect an argument
@@ -23,12 +28,11 @@ public abstract class TestBase {
     @Parameters("xmlbrowser")
     @BeforeMethod
     public void setUp(@Optional String xmlbrowser) {
-        String huburl="http://35.182.169.110:4444/wd/hub";
         String browser="chrome";
         if(xmlbrowser!=null){
            browser=xmlbrowser;
         }
-        Driver.getDriver(browser,huburl);
+        Driver.getDriver(browser);
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
